@@ -1,0 +1,12 @@
+/*
+ * flex
+ */
+
+.util-flex {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  >.cell {
+    display: table-cell;
+  }
+}

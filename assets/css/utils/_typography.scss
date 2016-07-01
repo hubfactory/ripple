@@ -1,0 +1,25 @@
+/*
+ * typography
+ */
+
+.util-link {
+  color: #0000ff;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    opcacity: 0.8;
+    text-decoration: none;
+  }
+}
+
+
+// size
+.util-font-size-s {
+  font-size: 14px !important;
+}
+.util-font-size-m {
+  font-size: 16px !important;
+}
+.util-font-size-l {
+  font-size: 18px !important;
+}

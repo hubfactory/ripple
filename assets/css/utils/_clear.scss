@@ -1,0 +1,11 @@
+/*
+ * clear
+ */
+
+.util-clear {
+  clear: both;
+}
+
+.util-clear-fix {
+  @include clearfix();
+}
