@@ -63,3 +63,5 @@ access_logs.db
 .tmp
 npm-debug.log
 
+# dest folder
+public
