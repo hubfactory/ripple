@@ -3,12 +3,15 @@
 // React
 let React = require('react');
 
+// Component
+let TopSlider = require('./TopSlider');
+
 export default class Top extends React.Component {
 
   render() {
     return (
-      <div>
-        Top
+      <div className="ly-slider">
+        <TopSlider />
       </div>
     )
   }

@@ -5,6 +5,7 @@ let React = require('react');
 
 // Components
 let Header = require('./Header');
+let Footer = require('./Footer');
 
 export default class App extends React.Component {
 
@@ -12,7 +13,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        {this.props.children}
+        <div className="ly-content-wrapper">
+          {this.props.children}
+        </div>
+        <Footer />
       </div>
     )
   }

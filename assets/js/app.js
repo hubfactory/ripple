@@ -14,6 +14,9 @@ let Top = require('./components/Top');
 let Detail = require('./components/Detail');
 let About = require('./components/About');
 
+// Ui
+let CommonUiEvent = require('./common/ui');
+
 let routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Top} />
@@ -28,4 +31,6 @@ ReactDOM.render(
   </Router>,
   document.getElementById('main-wrapper')
 );
+
+CommonUiEvent();
 

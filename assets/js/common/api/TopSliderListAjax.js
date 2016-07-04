@@ -4,7 +4,7 @@ let $ = require('jquery');
 const CONSTANTS = require('../CONSTANTS');
 let BaseAjax = require('./BaseAjax');
 
-class ArticleListAjax extends BaseAjax {
+class TopSliderListAjax extends BaseAjax {
 
   constructor() {
     super();

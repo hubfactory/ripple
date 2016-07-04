@@ -10,66 +10,39 @@ module.exports = (() => {
 
   // 記事リスト
   $.mockjax({
-    url: CONSTANTS.API_URL.ARTICLE_LIST,
+    url: CONSTANTS.API_URL.SLIDER_LIST,
     type: 'get',
     status: 200,
     responseText: [
       {
-        articleId: 1,
-        articleTitle: 'タイトル１',
-        articleUrl: "記事その1URL",
-        articleDescription : 'こんな感じ１こんな感じ１',
-        articleImage : 'https://source.unsplash.com/random',
-        tagData: [
-          {
-            tagId: 1,
-            tagName: 'タグ１',
-            tagUrl : '/'
-          },
-          {
-            tagId: 2,
-            tagName: 'タグ２',
-            tagUrl : '/'
-          }
-        ]
+        creator_id: 100,
+        creator_name: '伊原 純一',
+        brand_name: 'Script',
+        company_name: '株式会社Brand New Day',
+        category: 'ファッション',
+        creator_image: '/images/creators/100/creator.png',
+        slide_image: '/images/creators/100/slide.jpg',
+        description: '着る人の体のことを第一に考えたリラックスウェアブランド'
       },
       {
-        articleId: 2,
-        articleTitle: 'タイトル２',
-        articleUrl: "記事その2URL",
-        articleDescription : 'こんな感じ２こんな感じ２',
-        articleImage : 'https://source.unsplash.com/random',
-        tagData: [
-          {
-            tagId: 3,
-            tagName: 'タグ２−１',
-            tagUrl : '/'
-          },
-          {
-            tagId: 4,
-            tagName: 'タグ２−２',
-            tagUrl : '/'
-          },
-          {
-            tagId: 5,
-            tagName: 'タグ２−３',
-            tagUrl : '/'
-          }
-        ]
+        creator_id: 200,
+        creator_name: '吉木 りさ',
+        brand_name: 'RISARISA',
+        company_name: '株式会社YOSHIKI',
+        category: 'アイドル',
+        creator_image: '/images/creators/200/creator.png',
+        slide_image: '/images/creators/200/slide.jpg',
+        description: 'りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪'
       },
       {
-        articleId: 3,
-        articleTitle: 'タイトル３',
-        articleUrl: "記事その3URL",
-        articleDescription : 'こんな感じ３こんな感じ３',
-        articleImage : 'https://source.unsplash.com/random',
-        tagData: [
-          {
-            tagId: 6,
-            tagName: 'タグ３−１',
-            tagUrl : '/'
-          }
-        ]
+        creator_id: 300,
+        creator_name: 'はふてぃ',
+        brand_name: '関根学園！',
+        company_name: '桜滝コーポレーション',
+        category: 'アクセサリー',
+        creator_image: '/images/creators/300/creator.png',
+        slide_image: '/images/creators/300/slide.jpg',
+        description: 'やっぱり猫が好き♪猫はでぶがいい♪'
       }
     ]
   });

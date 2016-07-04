@@ -1,0 +1,105 @@
+/*
+ * layout/slider
+ */
+
+.ly-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  .slide-banner {
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    li {
+      position: relative;
+      overflow: hidden;
+      height: 600px;
+      a {
+        display: block;
+        width: 100%;
+        @include transition;
+        .slide-image img {
+          width: 100%;
+        }
+        .brand-name {
+          position: absolute;
+          bottom: 50px;
+          right: -10px;
+          font-size: 160px;
+          color: #fff;
+          opacity: 0.8;
+          font-style: oblique;
+          &:first-letter{
+            font-size: 1.5em;
+          }
+        }
+        .slider-inner {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 1050px;
+          margin: 0 auto;
+          padding: 50px 0 0 0;
+        }
+        &:hover .slide-desc-area {
+          background: rgba(3,64,125,0.5);
+        }
+        .slide-desc-area {
+          width: 300px;
+          height: 500px;
+          background: rgba(3,64,125,0.8);
+          padding: 20px;
+          text-align: center;
+          color: #fff;
+          overflow: hidden;
+          position: relative;
+          box-shadow: 1px 1px 2px #888;
+          border-radius: 3px;
+          @include transition;
+          .face-image {
+            margin: 0 auto 20px auto;
+            width: 190px;
+            height: 190px;
+            border-radius: 100px;
+            border: 5px solid #fff;
+            overflow: hidden;
+          }
+          .description {
+            font-size: 20px;
+            line-height: 28px;
+            margin-bottom: 20px;
+          }
+          .name {
+            font-size: 16px;
+            line-height: 24px;
+          }
+          .slide-category {
+            position: absolute;
+            top: 15px;
+            left: -50px;
+            text-align: center;
+            width: 180px;
+            font-size: 12px;
+            color: #fff;
+            background: #1e93f6;
+            transform: rotate(-40deg);
+            box-shadow: 1px 1px 2px #333;
+          }
+          .slide-arw {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 26px;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 48px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,4 +2,64 @@
  * layout/global-header
  */
 
+.ly-global-header {
+  position: relative;
+  background: #fff;
+  .header-outline {
+    background: #78be7d;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    .outline-text {
+      padding: 10px 20px;
+      margin: 0 auto;
+    }
+  }
+  .header-menu {
+    background: #fff;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: relative;
+    .header-logo {
+      text-align: center;
+      padding: 10px 0 0;
+      img {
+        width: 250px;
+      }
+    }
+    .menu-left-block {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+    .menu-right-block {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+    }
+    .menu-list {
+      display: table;
+      li {
+        display: table-cell;
+        font-weight: bold;
+        padding: 8px 10px;
+        a {
+          display: block;
+          font-size: 14px;
+          font-weight: bold;
+          border-radius: 19px;
+          color: #333;
+          height: 38px;
+          padding: 8px 16px;
+          text-align: center;
+          @include transition;
+          &:hover {
+            background: #78be7d;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
 
