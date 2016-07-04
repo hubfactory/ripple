@@ -26,6 +26,6 @@ ReactDOM.render(
   <Router history={browserHistory}>
     {routes}
   </Router>,
-  document.getElementById('outline-top')
+  document.getElementById('main-wrapper')
 );
 

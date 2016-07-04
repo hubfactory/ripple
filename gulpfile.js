@@ -5,6 +5,7 @@ var watchify    = require('watchify');
 var source      = require('vinyl-source-stream');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
+var historyApi  = require('connect-history-api-fallback');
 var del         = require('del');
 var pngquant    = require('imagemin-pngquant');
 var assign      = require('lodash.assign');
@@ -130,14 +131,12 @@ gulp.task('watch', ['browser-sync'], function() {
 });
 
 gulp.task('browser-sync', function() {
-  // var url = require('url');
-  // var proxyOptions = url.parse('http://localhost:3000/api');
-  // proxyOptions.route = '/api';
 
   browserSync({
     port: 4000,
     server: {
-      baseDir: path.tmp
+      baseDir: path.tmp,
+      middleware: [historyApi()]
     },
     startPath:'/'
   });

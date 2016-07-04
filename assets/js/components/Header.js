@@ -11,9 +11,9 @@ export default class Header extends React.Component {
     return (
       <header id="global-header">
         <ul>
-          <li><IndexLink to="/">Top</IndexLink></li>
-          <li><Link to="/detail">Detail</Link></li>
-          <li><Link to="/about">about</Link></li>
+          <li><IndexLink to="/" activeClassName="is-active">Top</IndexLink></li>
+          <li><Link to="/detail" activeClassName="is-active">Detail</Link></li>
+          <li><Link to="/about" activeClassName="is-active">about</Link></li>
         </ul>
       </header>
     )
