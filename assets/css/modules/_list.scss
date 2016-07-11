@@ -1,0 +1,124 @@
+/*
+ * module/list
+ */
+
+.mod-box-list {
+  margin: 0 auto;
+  width: 1050px;
+  @include clearfix;
+  li {
+    float: left;
+    width: 50%;
+    margin: 0 0 30px 0;
+    &:nth-child(2n-1) {
+      border-right: 1px solid #f5f5f5;
+    }
+    a {
+      display: block;
+      width: 100%;
+      padding: 30px 50px;
+      color: #666;
+      @include transition;
+      .list-image {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        img {
+          width: 100%;
+          @include transition;
+        }
+        .list-category {
+          position: absolute;
+          top: 15px;
+          left: -50px;
+          text-align: center;
+          width: 180px;
+          font-size: 12px;
+          color: #fff;
+          background: #1e93f6;
+          transform: rotate(-40deg);
+          box-shadow: 1px 1px 2px #333;
+        }
+      }
+      .list-info {
+        padding: 10px 0;
+        display: table;
+        width: 100%;
+        .info-inner {
+          display: table-cell;
+          text-align: center;
+          height: 85px;
+          width: 100%;
+          vertical-align: middle;
+        }
+      }
+      .list-desc {
+        display: table;
+        padding: 15px;
+        width: 100%;
+        border: 1px solid #f1f1f1;
+        @include transition;
+        .desc-inner-left {
+          display: table-cell;
+          vertical-align: middle;
+          width: 125px;
+          .circle-image {
+            width: 110px;
+            height: 110px;
+            border-radius: 55px;
+            border: 5px solid #98cb9c;
+            overflow: hidden;
+            position: relative;
+            img {
+              width: 110px;
+            }
+          }
+        }
+        .desc-inner-right {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          .headline {
+            font-size: 24px;
+            font-weight: bold;
+            color: #78be7d;
+            padding-bottom: 5px;
+          }
+          .name {
+            line-height: 26px;
+          }
+        }
+      }
+      .mod-button {
+        width: 250px;
+        margin: 30px auto 0;
+      }
+      &:hover {
+        text-decoration: none;
+        background: #f4f9f4;
+        cursor: pointer;
+        @include transition;
+        .list-image {
+          img {
+            opacity: 0.8;
+            @include transition;
+          }
+        }
+        .list-desc {
+          background: #fff;
+          color: #78be7d;
+          border: 1px solid #78be7d;
+          @include transition;
+        }
+        .mod-button {
+          background: #fff;
+          color: #78be7d;
+          &:after {
+            color: #78be7d;
+          }
+        }
+      }
+    }
+  }
+}

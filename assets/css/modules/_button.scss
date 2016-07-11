@@ -2,4 +2,38 @@
  * module/button
  */
 
-
+.mod-button {
+  display: block;
+  margin: 30px auto;
+  padding: 10px;
+  text-align: center;
+  background: #78be7d;
+  border: 1px solid #78be7d;
+  color: #fff;
+  min-width: 250px;
+  position: relative;
+  cursor: pointer;
+  @include transition;
+  &:after {
+    content: '>';
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    @include transition;
+  }
+  &:hover {
+    background: #fff;
+    color: #78be7d;
+    &:after {
+      color: #78be7d;
+    }
+  }
+  &.is-back {
+    &:after {
+      content: '<';
+      left: 10px;
+      right: auto;
+    }
+  }
+}

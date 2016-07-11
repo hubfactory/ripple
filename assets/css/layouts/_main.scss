@@ -2,4 +2,9 @@
  * layout/main
  */
 
+.ly-main {
+  @include clearfix();
+  margin: 60px auto;
+  max-width: 1050px;
+}
 

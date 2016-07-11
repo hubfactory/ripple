@@ -43,7 +43,7 @@ export default class TopSlider extends React.Component {
         autoplay: true,
         autoplaySpeed: 5000,
         arrows: false,
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 800,
         fade: true,
@@ -65,14 +65,14 @@ export default class TopSlider extends React.Component {
     let sliderList = this.state.sliderList.map((slider, i) => {
       return (
         <li className="slide-area" key={i}>
-          <a href={'/individual/' + slider.creator_id}>
-            <div className="slide-image">
-              <img src={slider.slide_image} />
-            </div>
+          <div className="slide-image">
+            <img src={slider.slide_image} />
+          </div>
+          <div className="slider-inner">
             <div className="brand-name">
               {slider.brand_name}
             </div>
-            <div className="slider-inner">
+            <a href={'/individual/' + slider.creator_id}>
               <div className="slide-desc-area">
                 <div className="face-image">
                   <img src={slider.creator_image} width="200" />
@@ -88,8 +88,8 @@ export default class TopSlider extends React.Component {
                   >
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </li>
       );
     });

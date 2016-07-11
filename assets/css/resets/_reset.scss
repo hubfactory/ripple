@@ -16,7 +16,7 @@ html {
 body {
   font-family: "Avenir", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, Arial;
   word-wrap: break-word;
-  color: #333;
+  color: #666;
   font-size: 16px;
   line-height: 2em;
   height: 100%;
@@ -26,8 +26,12 @@ a {
   color: #78be7d;
   text-decoration: none;
   &:hover {
+    color: #78be7d;
     text-decoration: underline;
     cursor: pointer;
+  }
+  &:visited {
+    color: #78be7d;
   }
 }
 h1,
