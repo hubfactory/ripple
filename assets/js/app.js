@@ -13,6 +13,7 @@ let App = require('./components/App');
 let Top = require('./components/Top');
 let Detail = require('./components/Detail');
 let About = require('./components/About');
+let Individual = require('./components/Individual');
 
 // Ui
 let CommonUiEvent = require('./common/ui');
@@ -20,6 +21,7 @@ let CommonUiEvent = require('./common/ui');
 let routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Top} />
+    <Route path="individual/:creatorId" component={Individual} />
     <Route path="detail" component={Detail} />
     <Route path="about" component={About} />
   </Route>

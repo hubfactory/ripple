@@ -1,12 +1,12 @@
 'use strict';
 
 let $ = require('jquery');
-const CONSTANTS = require('../CONSTANTS');
 let defer = $.Deferred();
 
 class BaseAjax {
 
-  constructor() {
+  constructor(url) {
+    this.url = url;
     $.ajaxSetup({
       dataType: 'json',
       success: defer.resolve,
@@ -14,7 +14,7 @@ class BaseAjax {
     });
   }
 
-  get() {
+  get(url) {
     $.ajax({
       url: this.url,
       type: 'get',
@@ -25,7 +25,6 @@ class BaseAjax {
 
   post() {
     $.ajax({
-      url: this.url,
       type: 'post',
       data: this.params
     });
@@ -34,7 +33,6 @@ class BaseAjax {
 
   put() {
     $.ajax({
-      url: this.url,
       type: 'put',
       data: this.params
     });
@@ -43,7 +41,6 @@ class BaseAjax {
 
   del() {
     $.ajax({
-      url: this.url,
       type: 'delete',
       data: this.params
     });
@@ -52,7 +49,6 @@ class BaseAjax {
 
   fetch() {
     $.ajax({
-      url: this.url,
       type: 'get',
       data: this.params
     });

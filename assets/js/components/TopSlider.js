@@ -53,10 +53,13 @@ export default class TopSlider extends React.Component {
 
     // Slider List
     sliderListAjax().done(function(res) {
-      self.setState({sliderList: res});
+      self.setState(
+        {
+          sliderList: res
+        }
+      );
       setSlideBanner();
     });
-
 
   }
 
