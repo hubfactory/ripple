@@ -6,8 +6,15 @@ let $ = require('jquery');
 // React
 let React = require('react');
 
+// React-Router
+let ReactRouter = require('react-router');
+let {Link} = ReactRouter;
+
 // Constants
 let CONSTANTS = require('../common/CONSTANTS');
+
+// Ajax
+let BaseAjax = require('../common/api/BaseAjax');
 
 // mock
 require('../common/_mock');
@@ -17,32 +24,27 @@ export default class TopCreator extends React.Component {
   constructor() {
     super();
     this.state = {creatorList: []};
+
+    let creatorListUrl = CONSTANTS.API_URL.CREATOR_LIST;
+
+    this.creatorListAjax = new BaseAjax(creatorListUrl);
   }
 
   componentDidMount() {
     let self = this;
 
-    // Slider List Ajax
-    let creatorListAjax = () => {
-      let defer = $.Deferred();
-      $.ajax({
-        url: CONSTANTS.API_URL.CREATOR_LIST,
-        type: 'get',
-        success: defer.resolve,
-        error: defer.reject
+    let params = {};
+
+    // Creator List Ajax
+    this.creatorListAjax
+      .get(params)
+      .done(function(res) {
+        self.setState(
+          {
+            creatorList: res
+          }
+        );
       });
-      return defer.promise();
-    };
-
-    // Creator List
-    creatorListAjax().done(function(res) {
-      self.setState(
-        {
-          creatorList: res
-        }
-      );
-    });
-
   }
 
   render() {
@@ -50,7 +52,7 @@ export default class TopCreator extends React.Component {
     let creatorList = this.state.creatorList.map((creator, i) => {
       return (
         <li key={i}>
-          <a href={'/individual/' + creator.creatorId}>
+          <Link to={'/individual/' + creator.creatorId}>
             <div className="list-image">
               <img src={creator.brandImage} />
               <div className="list-category">
@@ -76,7 +78,7 @@ export default class TopCreator extends React.Component {
             <div className="mod-button">
               "想い"に触れる
             </div>
-          </a>
+          </Link>
         </li>
       );
     });

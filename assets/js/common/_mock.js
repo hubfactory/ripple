@@ -15,33 +15,33 @@ module.exports = (() => {
     status: 200,
     responseText: [
       {
-        creator_id: 100,
-        creator_name: '伊原 純一',
-        brand_name: 'Script',
-        company_name: '株式会社Brand New Day',
+        creatorId: 1001,
+        creatorName: '伊原 純一',
+        brandName: 'Script',
+        companyName: '株式会社Brand New Day',
         category: 'ファッション',
-        creator_image: '/images/creators/100/creator.png',
-        slide_image: '/images/creators/100/slide.jpg',
+        creatorImage: '/images/creators/1001/creator.png',
+        slideImage: '/images/creators/1001/slide.jpg',
         description: '着る人の体のことを第一に考えたリラックスウェアブランド'
       },
       {
-        creator_id: 200,
-        creator_name: '吉木 りさ',
-        brand_name: 'RISARISA',
-        company_name: '株式会社YOSHIKI',
+        creatorId: 1002,
+        creatorName: '吉木 りさ',
+        brandName: 'RISARISA',
+        companyName: '株式会社YOSHIKI',
         category: 'アイドル',
-        creator_image: '/images/creators/200/creator.png',
-        slide_image: '/images/creators/200/slide.jpg',
+        creatorImage: '/images/creators/1002/creator.png',
+        slideImage: '/images/creators/1002/slide.jpg',
         description: 'りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪'
       },
       {
-        creator_id: 300,
-        creator_name: 'はふてぃ',
-        brand_name: '関根学園！',
-        company_name: '桜滝コーポレーション',
+        creatorId: 1003,
+        creatorName: 'はふてぃ',
+        brandName: '関根学園！',
+        companyName: '桜滝コーポレーション',
         category: 'アクセサリー',
-        creator_image: '/images/creators/300/creator.png',
-        slide_image: '/images/creators/300/slide.jpg',
+        creatorImage: '/images/creators/1003/creator.png',
+        slideImage: '/images/creators/1003/slide.jpg',
         description: 'やっぱり猫が好き♪猫はでぶがいい♪'
       }
     ]
@@ -59,8 +59,8 @@ module.exports = (() => {
         brandName: 'Script',
         companyName: '株式会社Brand New Day',
         category: 'ファッション',
-        creatorImage: 'images/creators/100/creator.png',
-        brandImage: 'images/creators/100/brand.png',
+        creatorImage: 'images/creators/1001/creator.png',
+        brandImage: 'images/creators/1001/brand.png',
         description: 'じぶん時間を着よう♪"カラダに害のあるものはいっさい使わない！生産者にも優しい、そんなパーソナルウェア作り。だよおおおおおお'
       },
       {
@@ -69,8 +69,8 @@ module.exports = (() => {
         brandName: 'RISARISA',
         companyName: '株式会社YOSHIKI',
         category: 'アイドル',
-        creatorImage: 'images/creators/200/creator.png',
-        brandImage: 'images/creators/200/brand.png',
+        creatorImage: 'images/creators/1002/creator.png',
+        brandImage: 'images/creators/1002/brand.png',
         description: 'りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪'
       },
       {
@@ -79,8 +79,8 @@ module.exports = (() => {
         brandName: '関根学園！',
         companyName: '桜滝コーポレーション',
         category: 'アクセサリー',
-        creatorImage: 'images/creators/300/creator.png',
-        brandImage: 'images/creators/300/brand.png',
+        creatorImage: 'images/creators/1003/creator.png',
+        brandImage: 'images/creators/1003/brand.png',
         description: 'やっぱり猫が好き♪猫はでぶがいい♪'
       },
       {
@@ -89,34 +89,35 @@ module.exports = (() => {
         brandName: 'naoki-furniture',
         companyName: '株式会社石塚',
         category: '家具',
-        creatorImage: 'images/creators/400/creator.png',
-        brandImage: 'images/creators/400/brand.png',
+        creatorImage: 'images/creators/1004/creator.png',
+        brandImage: 'images/creators/1004/brand.png',
         description: 'ばっちこい！てやんでい！'
       }
     ]
   });
 
-  // INDIVIDUAL ARTICLE
+  // INDIVIDUAL ARTICLE 1001
   $.mockjax({
-    url: CONSTANTS.API_URL.INDIVIDUAL_ARTICLE.replace(':creatorId', 1001),
+    url: CONSTANTS.API_URL.INDIVIDUAL_ARTICLE,
+    data: { creatorId: 1001 },
     type: 'get',
     status: 200,
     responseText: {
-      mainImage: 'images/individual/100/main.jpg',
+      mainImage: '/images/creators/1001/article/main.jpg',
       mainText: '着る人のカラダのこと、作り手のカラダのことを第一に考えたら、どうしてもオーガニックコットンが必要になったんです。',
       remarkText: '「じぶんじかんをきよう」洋服にたいする熱い想いを語ってくれた伊原さん。伊原さんの運営するブランド「Script」の洋服をぜひのぞいてみてください！',
       companyName: '株式会社Brand New Day',
       creatorName: '伊原　純一',
-      creatorImage: 'images/creators/100/creator.png',
+      creatorImage: '/images/creators/1001/creator.png',
       brandName: 'Script',
       infoMovie: 'https://www.youtube.com/embed/TDqchYpBF-M',
       companyAddress: '神奈川県逗子市新宿２丁目',
       siteUrl: 'http://script-garden.com/',
-      sentenceList: [
+      paragraphList: [
         {
           headline: 'ものづくりに対する想いの果てに',
-          articleImage: 'images/individual/100/1.png',
-          articleList: [
+          paragraphImage: '/images/creators/1001/article/1.png',
+          sentenceList: [
             {
               isInterviewer: true,
               interviewerId: 1,
@@ -131,8 +132,8 @@ module.exports = (() => {
         },
         {
           headline: 'こーじの思いの果てに',
-          articleImage: 'images/individual/100/1.png',
-          articleList: [
+          paragraphImage: '/images/creators/1001/article/1.png',
+          sentenceList: [
             {
               isInterviewer: true,
               interviewerId: 1,

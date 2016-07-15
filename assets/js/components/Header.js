@@ -30,9 +30,9 @@ export default class Header extends React.Component {
           </div>
           <div className="header-menu">
             <div className="header-logo">
-              <a href="/">
+              <Link to="/">
                 <img src="/images/common/logo.png" alt="RIPPLE" />
-              </a>
+              </Link>
             </div>
 
             <div className="menu-left-block">

@@ -6,6 +6,13 @@ let $ = require('jquery');
 // React
 let React = require('react');
 
+// React-Router
+let ReactRouter = require('react-router');
+let {Link} = ReactRouter;
+
+// Ajax
+let BaseAjax = require('../common/api/BaseAjax');
+
 // Constants
 let CONSTANTS = require('../common/CONSTANTS');
 
@@ -19,135 +26,131 @@ export default class Individual extends React.Component {
     this.state = {
       data: props.params,
       individualArticle: {
-        sentenceList: []
+        paragraphList: []
       }
     };
+
+    let individualArticleUrl = CONSTANTS.API_URL.INDIVIDUAL_ARTICLE;
+
+    this.individualArticleAjax = new BaseAjax(individualArticleUrl);
   }
 
   componentDidMount() {
     let self = this;
 
-    // URL
-    let individualArticleUrl = CONSTANTS.API_URL.INDIVIDUAL_ARTICLE.replace(':creatorId', this.state.data.creatorId);
-
-    // Slider List Ajax
-    let individualArticleAjax = () => {
-      let defer = $.Deferred();
-      $.ajax({
-        url: individualArticleUrl,
-        type: 'get',
-        success: defer.resolve,
-        error: defer.reject
-      });
-      return defer.promise();
+    let params = {
+      creatorId: parseInt(this.state.data.creatorId)
     };
 
-    // Article
-    individualArticleAjax().done(function(res) {
-      self.setState(
-        {
-          individualArticle: res
-        }
-      );
-      console.log(res);
-    });
-
+    // Article Ajax
+    this.individualArticleAjax
+      .get(params)
+      .done(function(res) {
+        self.setState(
+          {
+            individualArticle: res
+          }
+        );
+      });
   }
 
   render() {
 
     let state = this.state.individualArticle;
 
-    let sentenceList = state.sentenceList.map((sentence, i) => {
+    let paragraphList = state.paragraphList.map((paragraph, i) => {
 
-      let articleList =  sentence.articleList.map((article, i) => {
+      let sentenceList =  paragraph.sentenceList.map((sentence, i) => {
 
-        let articleImage;
+        let sentenceImage;
 
-        if (article.isInterviewer) {
-          articleImage = '/images/common/interviewer/' + article.interviewerId + '.png';
+        if (sentence.isInterviewer) {
+          sentenceImage = '/images/common/interviewer/' + sentence.interviewerId + '.png';
         } else {
-          articleImage = state.creatorImage;
+          sentenceImage = state.creatorImage;
         }
 
         return (
-          <div className="thought-box">
-            <div className="thought-left">
-              <div className="thought-face">
-                <img src={articleImage} />
+          <li key={i}>
+            <div className="left-block">
+              <div className="face-image">
+                <img src={sentenceImage} />
               </div>
             </div>
-            <div className="thought-right">
-              {article.sentence}
+            <div className="right-block">
+              {sentence.sentence}
             </div>
-          </div>
+          </li>
         );
       });
 
       return (
-        <li>
-          <h3 className="indivi-headline">
-            {sentence.headline}
+        <div className="mod-content-block" key={i}>
+          <h3 className="mod-heading">
+            {paragraph.headline}
           </h3>
 
-          <div className="indivi-image">
-            <img src={sentence.articleImage} />
+          <div className="content-image">
+            <img src={paragraph.paragraphImage} />
           </div>
 
-          <div>
-            {articleList}
-          </div>
-        </li>
+          <ul className="mod-line-list">
+            {sentenceList}
+          </ul>
+        </div>
       );
     });
 
     return (
       <div id="page-contents-id-individual">
 
-        // MAIN IMAGE
-        <div className="indivi-head-info">
-          <div className="indivi-main-img">
+        {/* MAIN IMAGE */}
+        <section className="head-info">
+          <div className="head-main-image">
             <img src={state.mainImage} />
-            <h2 className="brand-name">
-              {state.brandName}
-            </h2>
-            <div className="desc-area">
+            <div className="head-inner">
+              <h2 className="brand-name">
+                {state.brandName}
+              </h2>
               <div className="desc-text">
                 <p className="headline">
                   {state.mainText}
                 </p>
-                <p className="name">{state.companyName}<br />{state.creatorName}</p>
+                <p className="name">
+                  {state.companyName}<br />
+                  {state.creatorName}
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div classNameName="ly-main">
-          <div className="indivi-contents-wrap">
+        <div className="ly-contents">
 
-            <div className="movie-box">
-              <p className="movie-message">
-                - Message Movie from Creator -
-              </p>
-              <iframe src={state.infoMovie} frameborder="0" allowfullscreen></iframe>
-            </div>
+          <section className="movie-block">
+            <p className="movie-message">
+              - Message Movie from Creator -
+            </p>
+            <iframe src={state.infoMovie} frameBorder="0" allowFullScreen></iframe>
+          </section>
 
-            // SENTENCE LIST
-            <ul id="js-creators-top" classNameName="mod-box-list">
-              {sentenceList}
-            </ul>
+          {/* SENTENCE LIST */}
+          <section id="js-creators-top">
+            {paragraphList}
+          </section>
 
+          <section className="mod-remark-block">
             <div className="remark-text">
               {state.remarkText}
             </div>
 
-            <a href={'/individual/product/' + this.state.data.creatorId} className="product-btn right">
+            <Link to={'/individual/product/' + this.state.data.creatorId} className="mod-button">
               このクリエイターの商品一覧へ
-            </a>
+            </Link>
 
-            <div className="individual-info">
-              <h4>クリエイター情報</h4>
-              <div className="creator-info">
+            <div className="remark-info-area">
+              <p className="title">【クリエイター情報】</p>
+              <div className="remark-creator-info">
                 {state.companyName}<br />
                 {state.companyAddress}<br />
                 代表：{state.creatorName}<br />
@@ -157,7 +160,11 @@ export default class Individual extends React.Component {
               </div>
             </div>
 
-          </div>
+            <Link to="/" className="mod-button is-back">
+              戻る
+            </Link>
+          </section>
+
         </div>
 
       </div>

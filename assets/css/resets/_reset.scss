@@ -18,7 +18,7 @@ body {
   word-wrap: break-word;
   color: #666;
   font-size: 16px;
-  line-height: 2em;
+  line-height: 160%;
   height: 100%;
   margin: 0;
 }
@@ -30,9 +30,6 @@ a {
     text-decoration: underline;
     cursor: pointer;
   }
-  &:visited {
-    color: #78be7d;
-  }
 }
 h1,
 h2,
@@ -42,7 +39,6 @@ div,
 ul,
 ol,
 li {
-  line-height: 1.4em;
   margin: 0;
   padding: 0;
 }

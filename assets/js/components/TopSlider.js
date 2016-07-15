@@ -6,8 +6,15 @@ let $ = require('jquery');
 // React
 let React = require('react');
 
+// React-Router
+let ReactRouter = require('react-router');
+let {Link} = ReactRouter;
+
 // Constants
 let CONSTANTS = require('../common/CONSTANTS');
+
+// Ajax
+let BaseAjax = require('../common/api/BaseAjax');
 
 // Slick
 require('../util/slick');
@@ -20,22 +27,28 @@ export default class TopSlider extends React.Component {
   constructor() {
     super();
     this.state = {sliderList: []};
+
+    let sliderListUrl = CONSTANTS.API_URL.SLIDER_LIST;
+
+    this.sliderListAjax = new BaseAjax(sliderListUrl);
   }
 
   componentDidMount() {
     let self = this;
 
+    let params = {};
+
     // Slider List Ajax
-    let sliderListAjax = () => {
-      let defer = $.Deferred();
-      $.ajax({
-        url: CONSTANTS.API_URL.SLIDER_LIST,
-        type: 'get',
-        success: defer.resolve,
-        error: defer.reject
+    this.sliderListAjax
+      .get(params)
+      .done(function(res) {
+        self.setState(
+          {
+            sliderList: res
+          }
+        );
+        setSlideBanner();
       });
-      return defer.promise();
-    };
 
     // Slider Banner
     let setSlideBanner = () => {
@@ -50,17 +63,6 @@ export default class TopSlider extends React.Component {
         cssEase: 'linear'
       });
     }
-
-    // Slider List
-    sliderListAjax().done(function(res) {
-      self.setState(
-        {
-          sliderList: res
-        }
-      );
-      setSlideBanner();
-    });
-
   }
 
   render() {
@@ -69,20 +71,23 @@ export default class TopSlider extends React.Component {
       return (
         <li className="slide-area" key={i}>
           <div className="slide-image">
-            <img src={slider.slide_image} />
+            <img src={slider.slideImage} />
           </div>
           <div className="slider-inner">
             <div className="brand-name">
-              {slider.brand_name}
+              {slider.brandName}
             </div>
-            <a href={'/individual/' + slider.creator_id}>
+            <Link to={'/individual/' + slider.creatorId}>
               <div className="slide-desc-area">
                 <div className="face-image">
-                  <img src={slider.creator_image} width="200" />
+                  <img src={slider.creatorImage} width="200" />
                 </div>
                 <div className="slide-text">
                   <p className="description">{slider.description}</p>
-                  <p className="name">{slider.company_name}<br />{slider.creator_name}</p>
+                  <p className="name">
+                    {slider.companyName}<br />
+                    {slider.creatorName}
+                  </p>
                 </div>
                 <div className="slide-category">
                   {slider.category}
@@ -91,7 +96,7 @@ export default class TopSlider extends React.Component {
                   >
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </li>
       );

@@ -8,7 +8,7 @@ module.exports = (() => {
     API_URL : {
       SLIDER_LIST:          '/api/sliderList',
       CREATOR_LIST:         '/api/creatorList',
-      INDIVIDUAL_ARTICLE:   '/api/article?creatorId=:creatorId'
+      INDIVIDUAL_ARTICLE:   '/api/article'
     }
 
   };

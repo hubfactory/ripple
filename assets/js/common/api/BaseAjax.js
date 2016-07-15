@@ -1,58 +1,76 @@
 'use strict';
 
 let $ = require('jquery');
-let defer = $.Deferred();
 
 class BaseAjax {
 
   constructor(url) {
     this.url = url;
+  }
+
+  setUp() {
+    this.defer = $.Deferred();
+
     $.ajaxSetup({
       dataType: 'json',
-      success: defer.resolve,
-      error: defer.reject
+      success: this.defer.resolve,
+      error: this.defer.reject
     });
   }
 
-  get(url) {
+  get(params) {
+    this.setUp();
+
+    $.ajax({
+      url: this.url,
+      type: 'get',
+      data: params
+    });
+    return this.defer.promise();
+  }
+
+  post() {
+    this.setUp();
+
+    $.ajax({
+      url: this.url,
+      type: 'post',
+      data: this.params
+    });
+    return this.defer.promise();
+  }
+
+  put() {
+    this.setUp();
+
+    $.ajax({
+      url: this.url,
+      type: 'put',
+      data: this.params
+    });
+    return this.defer.promise();
+  }
+
+  del() {
+    this.setUp();
+
+    $.ajax({
+      url: this.url,
+      type: 'delete',
+      data: this.params
+    });
+    return this.defer.promise();
+  }
+
+  fetch() {
+    this.setUp();
+
     $.ajax({
       url: this.url,
       type: 'get',
       data: this.params
     });
-    return defer.promise();
-  }
-
-  post() {
-    $.ajax({
-      type: 'post',
-      data: this.params
-    });
-    return defer.promise();
-  }
-
-  put() {
-    $.ajax({
-      type: 'put',
-      data: this.params
-    });
-    return defer.promise();
-  }
-
-  del() {
-    $.ajax({
-      type: 'delete',
-      data: this.params
-    });
-    return defer.promise();
-  }
-
-  fetch() {
-    $.ajax({
-      type: 'get',
-      data: this.params
-    });
-    return defer.promise();
+    return this.defer.promise();
   }
 }
 
