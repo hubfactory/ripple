@@ -1,0 +1,18 @@
+/*
+ * module/input
+ */
+
+.mod-input-text,
+.mod-select select {
+  display: inline-block;
+  overflow: hidden;
+  width: 180px;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  vertical-align: middle;
+  padding: 10px 10px;
+  position: relative;
+  font-size: 16px;
+  color: #666;
+}

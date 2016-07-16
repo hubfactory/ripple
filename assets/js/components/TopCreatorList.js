@@ -50,6 +50,7 @@ export default class TopCreator extends React.Component {
   render() {
 
     let creatorList = this.state.creatorList.map((creator, i) => {
+
       return (
         <li key={i}>
           <Link to={'/individual/' + creator.creatorId}>
@@ -72,7 +73,10 @@ export default class TopCreator extends React.Component {
               </div>
               <div className="desc-inner-right">
                 <p className="headline">{creator.brandName}</p>
-                <p className="name">{creator.companyName}<br />{creator.creatorName}</p>
+                <p className="name">
+                  {creator.companyName}<br />
+                  {creator.creatorName}
+                </p>
               </div>
             </div>
             <div className="mod-button">

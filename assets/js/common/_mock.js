@@ -57,40 +57,40 @@ module.exports = (() => {
         creatorId: 1001,
         creatorName: '伊原 純一',
         brandName: 'Script',
-        companyName: '株式会社Brand New Day',
         category: 'ファッション',
         creatorImage: 'images/creators/1001/creator.png',
         brandImage: 'images/creators/1001/brand.png',
+        companyName: '株式会社Brand New Day',
         description: 'じぶん時間を着よう♪"カラダに害のあるものはいっさい使わない！生産者にも優しい、そんなパーソナルウェア作り。だよおおおおおお'
       },
       {
         creatorId: 1002,
         creatorName: '吉木 りさ',
         brandName: 'RISARISA',
-        companyName: '株式会社YOSHIKI',
         category: 'アイドル',
         creatorImage: 'images/creators/1002/creator.png',
         brandImage: 'images/creators/1002/brand.png',
+        companyName: '株式会社YOSHIKI',
         description: 'りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪'
       },
       {
         creatorId: 1003,
         creatorName: 'はふてぃ',
         brandName: '関根学園！',
-        companyName: '桜滝コーポレーション',
         category: 'アクセサリー',
         creatorImage: 'images/creators/1003/creator.png',
         brandImage: 'images/creators/1003/brand.png',
+        companyName: '桜滝コーポレーション',
         description: 'やっぱり猫が好き♪猫はでぶがいい♪'
       },
       {
         creatorId: 1004,
         creatorName: '石塚 なおき',
         brandName: 'naoki-furniture',
-        companyName: '株式会社石塚',
         category: '家具',
         creatorImage: 'images/creators/1004/creator.png',
         brandImage: 'images/creators/1004/brand.png',
+        companyName: '株式会社石塚',
         description: 'ばっちこい！てやんでい！'
       }
     ]
@@ -144,6 +144,46 @@ module.exports = (() => {
               interviewerId: 1,
               sentence: 'そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！'
             }
+          ]
+        }
+      ]
+    }
+  });
+
+  // INDIVIDUAL ARTICLE 1001
+  $.mockjax({
+    url: CONSTANTS.API_URL.INDIVIDUAL_PRODUCT,
+    data: { creatorId: 1001 },
+    type: 'get',
+    status: 200,
+    responseText: {
+      brandName: 'Script',
+      productList: [
+        {
+          productName: 'Script Mens オリジナルパーカー',
+          productText: '首元にラインの入ったお洒落なパーカー。お肌に優しいオーガニックコットン使用で着心地もかろやか。',
+          price: '13,900',
+          productImage: [
+            '/images/creators/1001/product/product_1_1.jpg',
+            '/images/creators/1001/product/product_1_2.jpg',
+            '/images/creators/1001/product/product_1_3.jpg'
+          ],
+          sizeInfo: [
+          ]
+        },
+        {
+          productName: 'Script Mens オリジナルパーカー',
+          productText: '首元にラインの入ったお洒落なパーカー。お肌に優しいオーガニックコットン使用で着心地もかろやか。',
+          price: '13,900',
+          productImage: [
+            '/images/creators/1001/product/product_1_1.jpg',
+            '/images/creators/1001/product/product_1_2.jpg',
+            '/images/creators/1001/product/product_1_3.jpg'
+          ],
+          sizeInfo: [
+            'S:120〜140',
+            'M:130〜150',
+            'L:140〜160'
           ]
         }
       ]

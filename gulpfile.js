@@ -74,13 +74,13 @@ function jscompile ( isWatch) {
       .on("error", function (err) { console.log("Error : " + err.message); })
       .pipe(source('app.js'))
       .pipe(gulp.dest(path.tmp + '/js'))
-    }
-    bundler.on( 'update', function() {
-      rebundle();
-    } );
-    bundler.on( 'log', function( message ) {
-      console.log( message );
-    });
+  }
+  bundler.on( 'update', function() {
+    rebundle();
+  } );
+  bundler.on( 'log', function( message ) {
+    console.log( message );
+  });
 
   return rebundle();
 
@@ -125,7 +125,9 @@ gulp.task('clean:mock', function(cb) {
 });
 
 gulp.task('watch', ['browser-sync'], function() {
-  gulp.watch(path.assets + '/js/**/*.js', ['watchify']);
+  //gulp.watch(path.assets + '/js/**/*.js', ['watchify']);
+  // watchifyが思うように動かないので、いったん、browserifyで代用
+  gulp.watch(path.assets + '/js/**/*.js', ['browserify']);
   gulp.watch(path.assets + '/css/**/*.scss', ['sass']);
   gulp.watch(path.assets + '/**/*.html', ['copy:dev']);
 });

@@ -8,7 +8,8 @@ module.exports = (() => {
     API_URL : {
       SLIDER_LIST:          '/api/sliderList',
       CREATOR_LIST:         '/api/creatorList',
-      INDIVIDUAL_ARTICLE:   '/api/article'
+      INDIVIDUAL_ARTICLE:   '/api/article',
+      INDIVIDUAL_PRODUCT:   '/api/product'
     }
 
   };
