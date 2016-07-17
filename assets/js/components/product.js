@@ -128,6 +128,7 @@ export default class Product extends React.Component {
                     <select name="kind">
                       {sizeInfo}
                     </select>
+                    <i className="fa fa-caret-down"></i>
                   </div>
                 </div>
               </div>
@@ -139,17 +140,19 @@ export default class Product extends React.Component {
                 </div>
               </div>
 
-              <ul className="product-image-list">
-                {productImage}
-              </ul>
+              <div className="product-action-block">
+                <ul className="product-image-list">
+                  {productImage}
+                </ul>
 
-              <div className="action-block">
-                <p className="product-price">
-                  単価：<span className="js-item-price">¥{product.price}</span>（税別）
-                </p>
-                <Link to="/cart" className="mod-button js-add-btn">
-                  カートに入れる
-                </Link>
+                <div className="action-block">
+                  <p className="product-price">
+                    単価：<span className="js-item-price">¥{product.price}</span>（税別）
+                  </p>
+                  <Link to="/cart" className="mod-button js-add-btn">
+                    カートに入れる
+                  </Link>
+                </div>
               </div>
 
             </div>
