@@ -25,6 +25,8 @@ export default class Product extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log(props);
+
     this.state = {
       data: props.params,
       individualProduct: {
@@ -158,7 +160,7 @@ export default class Product extends React.Component {
                   <p className="product-price">
                     単価：<span className="js-item-price">¥{product.price}</span>（税別）
                   </p>
-                  <Link to="/cart" className="mod-button js-add-btn">
+                  <Link to="/cart" className="mod-button is-buy-button js-add-btn">
                     カートに入れる
                   </Link>
                 </div>

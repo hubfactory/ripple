@@ -16,6 +16,7 @@ let About = require('./components/About');
 let IndividualApp = require('./components/IndividualApp');
 let Individual = require('./components/Individual');
 let Product = require('./components/Product');
+let Cart = require('./components/Cart');
 
 // Ui
 let CommonUiEvent = require('./common/ui');
@@ -27,6 +28,7 @@ let routes = (
       <Route path=":creatorId" component={Individual} />
       <Route path="product/:creatorId" component={Product} />
     </Route>
+    <Route path="cart" component={Cart} />
     <Route path="detail" component={Detail} />
     <Route path="about" component={About} />
   </Route>

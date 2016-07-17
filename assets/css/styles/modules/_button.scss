@@ -9,6 +9,7 @@
   text-align: center;
   background: #78be7d;
   border: 1px solid #78be7d;
+  border-radius: 2px;
   color: #fff;
   width: 360px;
   max-width: 500px;
@@ -44,6 +45,17 @@
       color: #bbb;
       &:after {
         color: #bbb;
+      }
+    }
+  }
+  &.is-buy-button {
+    background: #1e93f6;
+    border: 1px solid #1e93f6;
+    &:hover {
+      color: #1e93f6;
+      background: #fff;
+      &:after {
+        color: #1e93f6;
       }
     }
   }
