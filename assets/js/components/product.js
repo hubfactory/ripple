@@ -66,6 +66,15 @@ export default class Product extends React.Component {
           }
         );
       });
+
+    // 画像を切り替える
+    $(document).on('click', '.js-product-thumnail', function(e){
+      e.preventDefault();
+      var $e = $(e.target);
+      var $targetUrl = $e.attr('src');
+      var $targetImage = $e.closest('.js-product-list').find('.js-product-image');
+      $targetImage.attr("src", $targetUrl);
+    });
   }
 
   changeCount(e) {
@@ -91,7 +100,7 @@ export default class Product extends React.Component {
         }
         return (
           <li key={i}>
-            <img src={image} className="js_product-thumnail" />
+            <img src={image} className="js-product-thumnail" />
           </li>
         );
       });
@@ -106,15 +115,15 @@ export default class Product extends React.Component {
       });
 
       return (
-        <li key={i}>
+        <li className="js-product-list" key={i}>
           <div className="product-list-left">
             <div className="product-image">
-              <img src={bigImage} className="js-product-image js-item-image" />
+              <img src={bigImage} className="js-product-image" />
             </div>
           </div>
           <div className="product-list-right">
             <div className="product-description">
-              <p className="product-name js-item-name">
+              <p className="product-name">
                 {product.productName}
               </p>
               <p className="product-info">
