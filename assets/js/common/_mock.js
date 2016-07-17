@@ -8,70 +8,186 @@ module.exports = (() => {
 
   $mockjax($, window); // mockjaxに$を渡して動くようにしている。この記述がないと動かない
 
-  // 記事リスト
+  // TOP SLIDER LIST
   $.mockjax({
-    url: CONSTANTS.API_URL.ARTICLE_LIST,
+    url: CONSTANTS.API_URL.SLIDER_LIST,
     type: 'get',
     status: 200,
     responseText: [
       {
-        articleId: 1,
-        articleTitle: 'タイトル１',
-        articleUrl: "記事その1URL",
-        articleDescription : 'こんな感じ１こんな感じ１',
-        articleImage : 'https://source.unsplash.com/random',
-        tagData: [
-          {
-            tagId: 1,
-            tagName: 'タグ１',
-            tagUrl : '/'
-          },
-          {
-            tagId: 2,
-            tagName: 'タグ２',
-            tagUrl : '/'
-          }
-        ]
+        creatorId: 1001,
+        creatorName: '伊原 純一',
+        brandName: 'Script',
+        companyName: '株式会社Brand New Day',
+        category: 'ファッション',
+        creatorImage: '/images/creators/1001/creator.png',
+        slideImage: '/images/creators/1001/slide.jpg',
+        description: '着る人の体のことを第一に考えたリラックスウェアブランド'
       },
       {
-        articleId: 2,
-        articleTitle: 'タイトル２',
-        articleUrl: "記事その2URL",
-        articleDescription : 'こんな感じ２こんな感じ２',
-        articleImage : 'https://source.unsplash.com/random',
-        tagData: [
-          {
-            tagId: 3,
-            tagName: 'タグ２−１',
-            tagUrl : '/'
-          },
-          {
-            tagId: 4,
-            tagName: 'タグ２−２',
-            tagUrl : '/'
-          },
-          {
-            tagId: 5,
-            tagName: 'タグ２−３',
-            tagUrl : '/'
-          }
-        ]
+        creatorId: 1002,
+        creatorName: '吉木 りさ',
+        brandName: 'RISARISA',
+        companyName: '株式会社YOSHIKI',
+        category: 'アイドル',
+        creatorImage: '/images/creators/1002/creator.png',
+        slideImage: '/images/creators/1002/slide.jpg',
+        description: 'りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪'
       },
       {
-        articleId: 3,
-        articleTitle: 'タイトル３',
-        articleUrl: "記事その3URL",
-        articleDescription : 'こんな感じ３こんな感じ３',
-        articleImage : 'https://source.unsplash.com/random',
-        tagData: [
-          {
-            tagId: 6,
-            tagName: 'タグ３−１',
-            tagUrl : '/'
-          }
-        ]
+        creatorId: 1003,
+        creatorName: 'はふてぃ',
+        brandName: '関根学園！',
+        companyName: '桜滝コーポレーション',
+        category: 'アクセサリー',
+        creatorImage: '/images/creators/1003/creator.png',
+        slideImage: '/images/creators/1003/slide.jpg',
+        description: 'やっぱり猫が好き♪猫はでぶがいい♪'
       }
     ]
+  });
+
+  // TOP CREATOR LIST
+  $.mockjax({
+    url: CONSTANTS.API_URL.CREATOR_LIST,
+    type: 'get',
+    status: 200,
+    responseText: [
+      {
+        creatorId: 1001,
+        creatorName: '伊原 純一',
+        brandName: 'Script',
+        category: 'ファッション',
+        creatorImage: 'images/creators/1001/creator.png',
+        brandImage: 'images/creators/1001/brand.png',
+        companyName: '株式会社Brand New Day',
+        description: 'じぶん時間を着よう♪"カラダに害のあるものはいっさい使わない！生産者にも優しい、そんなパーソナルウェア作り。だよおおおおおお'
+      },
+      {
+        creatorId: 1002,
+        creatorName: '吉木 りさ',
+        brandName: 'RISARISA',
+        category: 'アイドル',
+        creatorImage: 'images/creators/1002/creator.png',
+        brandImage: 'images/creators/1002/brand.png',
+        companyName: '株式会社YOSHIKI',
+        description: 'りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪りさだお♪'
+      },
+      {
+        creatorId: 1003,
+        creatorName: 'はふてぃ',
+        brandName: '関根学園！',
+        category: 'アクセサリー',
+        creatorImage: 'images/creators/1003/creator.png',
+        brandImage: 'images/creators/1003/brand.png',
+        companyName: '桜滝コーポレーション',
+        description: 'やっぱり猫が好き♪猫はでぶがいい♪'
+      },
+      {
+        creatorId: 1004,
+        creatorName: '石塚 なおき',
+        brandName: 'naoki-furniture',
+        category: '家具',
+        creatorImage: 'images/creators/1004/creator.png',
+        brandImage: 'images/creators/1004/brand.png',
+        companyName: '株式会社石塚',
+        description: 'ばっちこい！てやんでい！'
+      }
+    ]
+  });
+
+  // INDIVIDUAL ARTICLE 1001
+  $.mockjax({
+    url: CONSTANTS.API_URL.INDIVIDUAL_ARTICLE,
+    data: { creatorId: 1001 },
+    type: 'get',
+    status: 200,
+    responseText: {
+      mainImage: '/images/creators/1001/article/main.jpg',
+      mainText: '着る人のカラダのこと、作り手のカラダのことを第一に考えたら、どうしてもオーガニックコットンが必要になったんです。',
+      remarkText: '「じぶんじかんをきよう」洋服にたいする熱い想いを語ってくれた伊原さん。伊原さんの運営するブランド「Script」の洋服をぜひのぞいてみてください！',
+      companyName: '株式会社Brand New Day',
+      creatorName: '伊原　純一',
+      creatorImage: '/images/creators/1001/creator.png',
+      brandName: 'Script',
+      infoMovie: 'https://www.youtube.com/embed/TDqchYpBF-M',
+      companyAddress: '神奈川県逗子市新宿２丁目',
+      siteUrl: 'http://script-garden.com/',
+      paragraphList: [
+        {
+          headline: 'ものづくりに対する想いの果てに',
+          paragraphImage: '/images/creators/1001/article/1.png',
+          sentenceList: [
+            {
+              isInterviewer: true,
+              interviewerId: 1,
+              sentence: 'なんで、安心してるんですか？'
+            },
+            {
+              isInterviewer: false,
+              interviewerId: 1,
+              sentence: '安心してください！伊原ですよ！\n安心してください！函館ですよ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！こーじ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！たかだ！'
+            }
+          ]
+        },
+        {
+          headline: 'こーじの思いの果てに',
+          paragraphImage: '/images/creators/1001/article/1.png',
+          sentenceList: [
+            {
+              isInterviewer: true,
+              interviewerId: 1,
+              sentence: 'なるほど。やっぱりこーじなんですね。'
+            },
+            {
+              isInterviewer: false,
+              interviewerId: 1,
+              sentence: 'そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！そーだ！こーじだ！'
+            }
+          ]
+        }
+      ]
+    }
+  });
+
+  // INDIVIDUAL ARTICLE 1001
+  $.mockjax({
+    url: CONSTANTS.API_URL.INDIVIDUAL_PRODUCT,
+    data: { creatorId: 1001 },
+    type: 'get',
+    status: 200,
+    responseText: {
+      brandName: 'Script',
+      productList: [
+        {
+          productName: 'Script Mens オリジナルパーカー',
+          productText: '首元にラインの入ったお洒落なパーカー。お肌に優しいオーガニックコットン使用で着心地もかろやか。',
+          price: '13,900',
+          productImage: [
+            '/images/creators/1001/product/product_1_1.jpg',
+            '/images/creators/1001/product/product_1_2.jpg',
+            '/images/creators/1001/product/product_1_3.jpg'
+          ],
+          sizeInfo: [
+          ]
+        },
+        {
+          productName: 'Script Mens オリジナルパーカー',
+          productText: '首元にラインの入ったお洒落なパーカー。お肌に優しいオーガニックコットン使用で着心地もかろやか。',
+          price: '13,900',
+          productImage: [
+            '/images/creators/1001/product/product_1_1.jpg',
+            '/images/creators/1001/product/product_1_2.jpg',
+            '/images/creators/1001/product/product_1_3.jpg'
+          ],
+          sizeInfo: [
+            'S:120〜140',
+            'M:130〜150',
+            'L:140〜160'
+          ]
+        }
+      ]
+    }
   });
 
 })();

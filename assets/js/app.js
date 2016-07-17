@@ -13,10 +13,22 @@ let App = require('./components/App');
 let Top = require('./components/Top');
 let Detail = require('./components/Detail');
 let About = require('./components/About');
+let IndividualApp = require('./components/IndividualApp');
+let Individual = require('./components/Individual');
+let Product = require('./components/Product');
+let Cart = require('./components/Cart');
+
+// Ui
+let CommonUiEvent = require('./common/ui');
 
 let routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Top} />
+    <Route path="individual/" component={IndividualApp}>
+      <Route path=":creatorId" component={Individual} />
+      <Route path="product/:creatorId" component={Product} />
+    </Route>
+    <Route path="cart" component={Cart} />
     <Route path="detail" component={Detail} />
     <Route path="about" component={About} />
   </Route>
@@ -26,6 +38,8 @@ ReactDOM.render(
   <Router history={browserHistory}>
     {routes}
   </Router>,
-  document.getElementById('outline-top')
+  document.getElementById('main-wrapper')
 );
+
+CommonUiEvent();
 

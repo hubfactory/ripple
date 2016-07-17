@@ -1,0 +1,77 @@
+/*
+ * reset pencil
+ * Bootstrap のリセットスタイルに準じる
+ */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Avenir", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, Arial;
+  word-wrap: break-word;
+  color: #666;
+  font-size: 16px;
+  line-height: 160%;
+  height: 100%;
+  margin: 0;
+}
+a {
+  color: #78be7d;
+  text-decoration: none;
+  &:hover {
+    color: #78be7d;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+h1,
+h2,
+h3,
+p,
+div,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  outline-width: 0;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  outline-width: 0;
+  font-family: "Avenir", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, Arial;
+}
+

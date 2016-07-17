@@ -1,0 +1,32 @@
+/*
+ * layout/global-footer
+ */
+
+ .ly-global-footer {
+  background: #78be7d;
+  width: 100%;
+  .footer-inner {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    .company-name {
+      padding: 0 0 5px;
+    }
+    .inner-text {
+      display: inline-block;
+      font-size: 14px;
+      padding: 10px;
+      a {
+        color: #fff;
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .copy {
+      padding: 20px 0 0;
+      font-size: 12px;
+    }
+  }
+}

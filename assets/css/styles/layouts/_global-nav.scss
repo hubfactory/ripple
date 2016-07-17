@@ -1,0 +1,42 @@
+/*
+ * layout/global-nav
+ */
+
+.ly-nav {
+  position: fixed !important;
+  top: -100px;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 0 3px #ccc;
+  .logo-area {
+    text-align: center;
+    padding: 10px 0 0;
+    img {
+      width: 100px;
+    }
+  }
+  .category-menu-lists {
+    display: table;
+    margin: 0 auto;
+    li {
+      display: table-cell;
+      padding: 5px 10px 10px 10px;
+      a {
+        display: block;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: bold;
+        border-radius: 2px;
+        color: #333;
+        padding: 5px 20px;
+        text-align: center;
+        @include transition;
+        &:hover {
+          background: #78be7d;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

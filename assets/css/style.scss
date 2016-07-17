@@ -4,10 +4,13 @@
 
 @charset "UTF-8";
 
-@import "functions/all";
-@import "resets/reset";
-@import "utils/all";
-@import "layouts/all";
-@import "modules/all";
-@import "pages/all";
+// font-awesome
+@import "font-awesome/font-awesome";
 
+@import "styles/functions/all";
+@import "styles/resets/reset";
+@import "styles/utils/all";
+@import "styles/layouts/all";
+@import "styles/modules/all";
+@import "styles/pages/all";
+@import "styles/libraries/all";

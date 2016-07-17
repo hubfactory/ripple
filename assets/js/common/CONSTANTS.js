@@ -6,8 +6,10 @@ module.exports = (() => {
   const CONSTANTS = {
 
     API_URL : {
-      ARTICLE_LIST: '/api/article',
-      TAG_LIST: '/api/tag'
+      SLIDER_LIST:          '/api/sliderList',
+      CREATOR_LIST:         '/api/creatorList',
+      INDIVIDUAL_ARTICLE:   '/api/article',
+      INDIVIDUAL_PRODUCT:   '/api/product'
     }
 
   };
