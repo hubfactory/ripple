@@ -76,17 +76,14 @@ const store = createStore(
 let mapStateToProps = (state) => {
   return state;
 };
-// function mapStateToProps(state) {
-//   return state;
-// }
 
-function mapDispatchToProps(dispatch) {
+let mapDispatchToProps = (dispatch) => {
   return {
     addCartList: (el) => {
       dispatch( addCartList(el) )
     }
   };
-}
+};
 
 // ProductページをRuduxとコネクトさせる
 const ProductList = connect(
