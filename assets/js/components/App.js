@@ -11,9 +11,6 @@ export default class App extends React.Component {
 
   constructor() {
     super();
-    this.state = {
-      cartList : ['ふふふ']
-    }
   }
 
   render() {
@@ -22,9 +19,6 @@ export default class App extends React.Component {
         <Header />
         <div className="ly-content-wrapper">
           {this.props.children}
-          {React.cloneElement(this.props.children, {
-            cartList: this.state.cartList
-          })}
         </div>
         <Footer />
       </div>

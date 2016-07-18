@@ -9,7 +9,7 @@ let ReactDOM = require('react-dom');
 
 // React-Router
 let ReactRouter = require('react-router');
-let {Link} = ReactRouter;
+let {Link, browserHistory} = ReactRouter;
 
 // Ajax
 let BaseAjax = require('../common/api/BaseAjax');
@@ -72,20 +72,39 @@ export default class Product extends React.Component {
     // 画像を切り替える
     $(document).on('click', '.js-product-thumnail', function(e){
       e.preventDefault();
-      var $e = $(e.target);
-      var $targetUrl = $e.attr('src');
-      var $targetImage = $e.closest('.js-product-list').find('.js-product-image');
+      let $e = $(e.target);
+      let $targetUrl = $e.attr('src');
+      let $targetImage = $e.closest('.js-product-list').find('.js-product-image');
       $targetImage.attr("src", $targetUrl);
     });
   }
 
   changeCount(e) {
     e.preventDefault();
-    let $target = $(e.target);
-    let listIndex = Number($target.data('editIndex'));
+    let $e = $(e.target);
+    let listIndex = Number($e.data('editIndex'));
     let tmpState = this.state;
     tmpState.individualProduct.productList[listIndex].productCount = e.target.value;
     this.setState(tmpState);
+  }
+
+  handleAddCartList(e){
+    e.preventDefault();
+    let $e = $(e.target);
+    let listIndex = Number($e.data('productIndex'));
+    let $targetList = $e.closest('.js-product-list');
+    let targetProductState = this.state.individualProduct.productList[listIndex];
+    let sizeInfo = 'sizeInfo' + listIndex;
+    let targetProduct = {
+      creatorId: this.props.params.creatorId,
+      brandName: this.state.individualProduct.brandName,
+      productName: targetProductState.productName,
+      productCount: targetProductState.productCount,
+      price: targetProductState.price,
+      productImage: targetProductState.productImage[0],
+      size: $targetList.find('.react-size-info').val()
+    }
+    this.props.addCartList(targetProduct);
   }
 
   render() {
@@ -110,7 +129,7 @@ export default class Product extends React.Component {
       // サイズリスト
       let sizeInfo = product.sizeInfo.map((info, i) => {
         return (
-          <option value="{info}" key={i}>
+          <option value={info} key={i}>
             {info}
           </option>
         );
@@ -136,7 +155,7 @@ export default class Product extends React.Component {
                 <div className="product-input-box">
                   <p className="input-text">サイズ：</p>
                   <div className="input-area mod-select">
-                    <select name="kind">
+                    <select name="kind" className="react-size-info">
                       {sizeInfo}
                     </select>
                     <i className="fa fa-caret-down"></i>
@@ -147,7 +166,7 @@ export default class Product extends React.Component {
               <div className="product-input-box">
                 <p className="input-text">数量：</p>
                 <div className="input-area">
-                  <input type="number" name="count" min="1" value={product.productCount} className="js-item-num mod-input-text" ref="inputCount" onChange={this.changeCount} data-edit-index={i} />
+                  <input type="number" name="count" min="1" value={product.productCount} className="js-item-num mod-input-text" onChange={this.changeCount} data-edit-index={i} />
                 </div>
               </div>
 
@@ -160,9 +179,9 @@ export default class Product extends React.Component {
                   <p className="product-price">
                     単価：<span className="js-item-price">¥{product.price}</span>（税別）
                   </p>
-                  <Link to="/cart" className="mod-button is-buy-button js-add-btn">
+                  <div className="mod-button is-buy-button js-add-btn" data-product-index={i} onClick={this.handleAddCartList.bind(this)}>
                     カートに入れる
-                  </Link>
+                  </div>
                 </div>
               </div>
 

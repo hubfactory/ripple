@@ -169,6 +169,9 @@ module.exports = (() => {
             '/images/creators/1001/product/product_1_3.jpg'
           ],
           sizeInfo: [
+            'S:120〜140',
+            'M:130〜150',
+            'L:140〜160'
           ]
         },
         {
